@@ -9,7 +9,7 @@ const Product = () => {
   const {products, currency} = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState('');
-  const [seze, setSize] = useState('')
+  const [size, setSize] = useState('')
 
   const fetchProductData = async () => {
     
@@ -61,8 +61,26 @@ const Product = () => {
                          ))}
                        </div>
                    </div>
+                    <button className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>ADD TO CART</button>
+                    <hr  className='mt-8 sm:w-4/5'/>
+                     <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
+                        <p>100% Original product</p>
+                        <p>Cash on delivery is available on this porduct.</p>
+                        <p>Easy return and exchange policy within 7 days.</p>
+                     </div>
               </div>
       </div>
+        {/*.......... Description and review section ........ */}
+         <div className='mt-20'>
+            <div  className='flex'>
+                 <b className='border px-5 py-3 text-sm'>Description</b>
+                 <p className='border px-5 py-3 text-sm'>Reviews (133)</p>
+            </div>
+              <div className='flex flex-col gap-4 border px-6 py6 text-sm text-gray-500'>
+                <p>An e-commerce website is an online platform that facialiates the buying and selling of porducts or services over the internet. It serves as a virual marketplace where business and individuals can showcase their porduts, interact with customers witout the need for a pusical presense. E-commerce website have gained immense popularity due to their concenience, accesibility, and the global reach thir offer.</p>
+                <p>E-commerce websites typically display products or services along with detailed descriptions, images, prices, and only available bariations (eg., sizes, colors). Each product usually has its own dedicated page with relavant information.</p>
+              </div>
+         </div>
     </div>
   ) : <div className='opacity-0'></div>
 }
