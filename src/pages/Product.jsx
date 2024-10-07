@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets';
+import RelatedProduct from '../components/RelatedProduct';
 
 const Product = () => {
 
@@ -81,6 +82,8 @@ const Product = () => {
                 <p>E-commerce websites typically display products or services along with detailed descriptions, images, prices, and only available bariations (eg., sizes, colors). Each product usually has its own dedicated page with relavant information.</p>
               </div>
          </div>
+           {/*.......... Display Related Products ..........*/}
+           <RelatedProduct category={productData.category} subCategory={productData.subCategory} />
     </div>
   ) : <div className='opacity-0'></div>
 }
