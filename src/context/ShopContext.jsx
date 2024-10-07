@@ -35,7 +35,7 @@ const ShopContextProvider = (props) => {
      setCartItems(cartData);
   }
 
-  const getCartCount = () =>{
+  const getCartCount = () => {
     let totalCount = 0;
     for(const items in carrItems){
        for( const item in carrItems[items]){
