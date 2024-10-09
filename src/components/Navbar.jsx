@@ -5,7 +5,7 @@ import { ShopContext } from '../context/ShopContext';
 
 const Navbar = () => {
   // create a state variable
-  const [visible, setVisible] =useState(false);
+  const [visible, setVisible] = useState(false);
 
   const {setShowSearch, getCartCount} = useContext(ShopContext);
   

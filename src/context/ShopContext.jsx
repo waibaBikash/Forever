@@ -10,7 +10,7 @@ const ShopContextProvider = (props) => {
   const delivery_fee = 5;
   const [search,setSerach] = useState('');
   const [showSearch, setShowSearch] = useState(false);
-  const [carrItems, setCartItems] = useState({});
+  const [cartItems, setCartItems] = useState({});
 
 
   const addToCart = async (itemId, size) => {
@@ -20,7 +20,7 @@ const ShopContextProvider = (props) => {
       return;
     }
    
-    let cartData = structuredClone(carrItems);
+    let cartData = structuredClone(cartItems);
     if (cartData[itemId]) {
        if (cartData[itemId][size]) {
         cartData[itemId][size] += 1;
@@ -34,18 +34,18 @@ const ShopContextProvider = (props) => {
     }
      setCartItems(cartData);
   }
-  useEffect(()=>{
-    console.log(carrItems);
+  // useEffect(()=>{
+  //   console.log(cartItems);
     
-  },[carrItems])
+  // },[cartItems])
 
   const getCartCount = () => {
     let totalCount = 0;
-    for(const items in carrItems){
-       for( const item in carrItems[items]){
+    for(const items in cartItems){
+       for( const item in cartItems[items]){
           try {
-            if (carrItems[items][item] > 0) {
-              totalCount += carrItems[items][item];
+            if (cartItems[items][item] > 0) {
+              totalCount += cartItems[items][item];
             }
           } catch (error) {
             
@@ -54,11 +54,19 @@ const ShopContextProvider = (props) => {
     }
     return totalCount;
   }
+
+  const updateQuantity = async (itemId,size,quantity) => {
+    let cartData = structuredClone(cartItems);
+
+    cartData[itemId][size] = quantity;
+
+    setCartItems(cartData);
+  }
   
   const value = {
      products, currency, delivery_fee,
-     search,setSerach,showSearch,setShowSearch, carrItems, addToCart,
-     getCartCount
+     search,setSerach,showSearch,setShowSearch, cartItems, addToCart,
+     getCartCount,updateQuantity
   }
   return(
     <ShopContext.Provider value={value}>
